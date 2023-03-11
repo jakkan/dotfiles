@@ -68,17 +68,17 @@ c.url.default_page = "about:blank"
 
 ### MODES
 
-# Don't swith modes automatically
-# For this to not be annoying I need to always exit input mode immediately after input
-# Don't automatically enter insert mode when input element is clicked
-c.input.insert_mode.auto_enter = False
-
-c.input.forward_unbound_keys = "all"
-
-# Disable all key bindings in normal mode
+# Prefix key bindings that I may regret: https://qutebrowser.org/doc/help/settings.html#bindings.commands
 c.bindings.default['normal'] = {}
 c.bindings.commands['normal'] = {
-    # navigate 
+    # restore defaults
+	'=': 'zoom-in',
+	'-': 'zoom-out',
+
+	'/': 'set-cmd-text /',
+    ':': 'set-cmd-text :',
+    '?': 'set-cmd-text ?',
+
     '<alt-1>': 'tab-focus 1',
     '<alt-2>': 'tab-focus 2',
     '<alt-3>': 'tab-focus 3',
@@ -89,73 +89,41 @@ c.bindings.commands['normal'] = {
     '<alt-8>': 'tab-focus 8',
     '<alt-9>': 'tab-focus 9',
 
-	'<alt-h>': 'back',
-	'<alt-j>': 'tab-prev',
-	'<alt-k>': 'tab-next',
-	'<alt-l>': 'forward',
-    '<alt-left>': 'back',
-    '<alt-down>': 'tab-prev',
-    '<alt-up>': 'tab-next',
-    '<alt-right>': 'forward',
+    '<alt-m>': 'tab-mute',
 
-    # yank
-	'<alt-y><alt-y>': 'yank',
-	'<alt-y><alt-u>': 'yank url',
-	'<alt-y><alt-t>': 'yank title',
-    '<alt-y><alt-l>': 'hint links yank',
-
-
-    # modes
-    '<alt-m><alt-p>': 'mode-enter passthrough',
-    '<alt-m><alt-v>': 'mode-enter caret',
-    '<alt-m><alt-l>': 'mode-enter caret ;; selection-toggle --line',
-
-    # open and close
-    '<ctrl-l>': 'set-cmd-text -s :open',
-    '<ctrl-t>': 'set-cmd-text -s :open -t',
-    '<ctrl-shift-t>': 'set-cmd-text -s :open -w',
-	'<ctrl-w>': 'tab-close',
-
-    # search
-	'<ctrl-n>': 'search-next',
-	'<shift-ctrl-n>': 'search-prev',
-
-    # scroll
-	'<alt-g>': 'scroll-to-perc 0',
-	'<alt-shift-g>': 'scroll-to-perc',
 	'<ctrl-u>': 'scroll-page 0 -0.5',
 	'<ctrl-d>': 'scroll-page 0 0.5',
 	'<ctrl-b>': 'scroll-page 0 -1',
 	'<ctrl-f>': 'scroll-page 0 1',
 
-    # hints
-	'<alt-f>': 'hint all',
-	'<ctrl-shift-f>': 'hint all tab',
+	'<ctrl-n>': 'open -w',
+	'<ctrl-t>': 'open -t',
+    'o': 'set-cmd-text -s :open',
+    'O': 'set-cmd-text -s :open -t',
 
-    # zoom
-	'<ctrl-=>': 'zoom-in',
-	'<ctrl-->': 'zoom-out',
+    '<ctrl-v>': 'mode-enter passthrough',
+    'V': 'mode-enter caret ;; selection-toggle --line',
+    'v': 'mode-enter caret',
 
-    # commands
-	'<ctrl-shift-.>': 'set-cmd-text :',
-	'<ctrl-/>': 'set-cmd-text /',
-	'<ctrl-shift-/>': 'set-cmd-text ?',
+    'N': 'search-prev',
+    'n': 'search-next',
 
-    # misc
-	'<ctrl-r>': 'reload',
-	'<ctrl-.>': 'repeat-command',
+    'f': 'hint',
+    'gg': 'scroll-to-perc 0',
+    'G': 'scroll-to-perc',
+	'u': 'undo',
     
-    # Workaround to make numbers work not be handled by qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/4213
-    '1': 'fake-key 1',
-    '2': 'fake-key 2',
-    '3': 'fake-key 3',
-    '4': 'fake-key 4',
-    '5': 'fake-key 5',
-    '6': 'fake-key 6',
-    '7': 'fake-key 7',
-    '8': 'fake-key 8',
-    '9': 'fake-key 9',
-    '0': 'fake-key 0',
+	'yy': 'yank',
+	'yt': 'yank title',
+
+    # prefix
+	'<ctrl-a>H': 'back',
+	'<ctrl-a>J': 'tab-next',
+	'<ctrl-a>K': 'tab-prev',
+	'<ctrl-a>L': 'forward',
+
+	'<ctrl-a>d': 'tab-close',
+	'<ctrl-a>r': 'reload',
 }
 
 # Make active/inactive colors consistent with i3 and tmux config
