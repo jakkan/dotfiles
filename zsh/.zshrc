@@ -55,12 +55,21 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Aliases
+# Aliases to make life easier
+alias vim=nvim
+alias v=nvim
+alias lz=lazygit
 alias ls=exa
 alias cat=batcat
-alias vim=nvim
 alias grep=rg
 alias find=fd
+
+# Aliases to make original tools possible to access
+alias vim_=/usr/bin/vim
+alias ls_=/usr/bin/ls
+alias cat_=/usr/bin/cat
+alias grep_=/usr/bin/grep
+alias find_=/usr/bin/find
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
