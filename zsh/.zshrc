@@ -77,3 +77,10 @@ export PATH=$PATH:/usr/local/go/bin
 # Markdown notes
 export ZK_NOTEBOOK_DIR=$HOME/Notes
 
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
