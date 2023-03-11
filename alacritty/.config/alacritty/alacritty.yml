@@ -1,10 +1,6 @@
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
-selection:
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: true
-
 scrolling:
   # Specifying '0' will disable scrolling.
   history: 10000
