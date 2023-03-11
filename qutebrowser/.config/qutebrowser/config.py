@@ -42,8 +42,8 @@ c.fonts.tabs.unselected = "10pt Hack Nerd Font"
 
 c.colors.webpage.preferred_color_scheme = "dark"
 
-# Show tab numbor to make it easier to jump to tab number 
-c.tabs.title.format = '{index}{private}{title_sep}{current_title}'
+# Show tab numbor to make it easier to jump to tab number
+c.tabs.title.format = '{private} {current_title}'
 
 # Set a maximum tab width so small numbers of tabs aren't so huge
 c.tabs.max_width = 300
