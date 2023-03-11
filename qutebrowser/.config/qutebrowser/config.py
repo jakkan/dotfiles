@@ -91,6 +91,9 @@ config.bind("I", "mode-enter passthrough", mode="normal")
 config.bind('aa', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open -t https://www.google.com/search?q=cache:{url}')
 
+config.bind('<Alt+Left>', 'tab-prev')
+config.bind('<Alt+Right>', 'tab-next')
+
 # Make active/inactive colors consistent with i3 and tmux config
 c.colors.tabs.even.bg = "#333333"
 c.colors.tabs.odd.bg = "#333333"
