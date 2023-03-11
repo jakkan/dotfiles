@@ -1,10 +1,6 @@
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
-scrolling:
-  # Specifying '0' will disable scrolling.
-  history: 10000
-
 font:
   normal:
     family: "Hack Nerd Font"
