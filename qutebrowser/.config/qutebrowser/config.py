@@ -69,12 +69,13 @@ c.url.default_page = "about:blank"
 ### MODES
 
 # Don't swith modes automatically
+# For this to not be annoying I need to always exit input mode immediately after input
 # Don't automatically enter insert mode when input element is clicked
-#c.input.insert_mode.auto_enter = False
+c.input.insert_mode.auto_enter = False
 # Don't automatically leave intert mode when non-input element is clicked
-#c.input.insert_mode.auto_leave = False
+c.input.insert_mode.auto_leave = False
 # Don't automatically leave input mode when site is kinda reloaded
-#c.input.insert_mode.leave_on_load = False
+c.input.insert_mode.leave_on_load = False
 
 ### KEY MAPPINGS
 
