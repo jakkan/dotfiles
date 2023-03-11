@@ -72,27 +72,91 @@ c.url.default_page = "about:blank"
 # For this to not be annoying I need to always exit input mode immediately after input
 # Don't automatically enter insert mode when input element is clicked
 c.input.insert_mode.auto_enter = False
-# Don't automatically leave intert mode when non-input element is clicked
-c.input.insert_mode.auto_leave = False
-# Don't automatically leave input mode when site is kinda reloaded
-c.input.insert_mode.leave_on_load = False
 
-### KEY MAPPINGS
+c.input.forward_unbound_keys = "all"
 
-# Editor bindings
-c.editor.command = ['alacritty', '-e', 'nvim', '{}']
-config.bind("gF", "view-source --edit", "normal")
+# Disable all key bindings in normal mode
+c.bindings.default['normal'] = {}
+c.bindings.commands['normal'] = {
+    # navigate 
+    '<alt-1>': 'tab-focus 1',
+    '<alt-2>': 'tab-focus 2',
+    '<alt-3>': 'tab-focus 3',
+    '<alt-4>': 'tab-focus 4',
+    '<alt-5>': 'tab-focus 5',
+    '<alt-6>': 'tab-focus 6',
+    '<alt-7>': 'tab-focus 7',
+    '<alt-8>': 'tab-focus 8',
+    '<alt-9>': 'tab-focus 9',
 
-# Rebind enter passthrough mode, to not accidentally enter when attempting to paste
-config.unbind("<Ctrl+V>", mode="normal")
-config.bind("I", "mode-enter passthrough", mode="normal")
+	'<alt-h>': 'back',
+	'<alt-j>': 'tab-prev',
+	'<alt-k>': 'tab-next',
+	'<alt-l>': 'forward',
+    '<alt-left>': 'back',
+    '<alt-down>': 'tab-prev',
+    '<alt-up>': 'tab-next',
+    '<alt-right>': 'forward',
 
-# Binds for opening archived version of current page
-config.bind('aa', 'open -t https://web.archive.org/web/*/{url}')
-config.bind('ag', 'open -t https://www.google.com/search?q=cache:{url}')
+    # yank
+	'<alt-y><alt-y>': 'yank',
+	'<alt-y><alt-u>': 'yank url',
+	'<alt-y><alt-t>': 'yank title',
+    '<alt-y><alt-l>': 'hint links yank',
 
-config.bind('<Alt+Left>', 'tab-prev')
-config.bind('<Alt+Right>', 'tab-next')
+
+    # modes
+    '<alt-m><alt-p>': 'mode-enter passthrough',
+    '<alt-m><alt-v>': 'mode-enter caret',
+    '<alt-m><alt-l>': 'mode-enter caret ;; selection-toggle --line',
+
+    # open and close
+    '<ctrl-l>': 'set-cmd-text -s :open',
+    '<ctrl-t>': 'set-cmd-text -s :open -t',
+    '<ctrl-shift-t>': 'set-cmd-text -s :open -w',
+	'<ctrl-w>': 'tab-close',
+
+    # search
+	'<ctrl-n>': 'search-next',
+	'<shift-ctrl-n>': 'search-prev',
+
+    # scroll
+	'<alt-g>': 'scroll-to-perc 0',
+	'<alt-shift-g>': 'scroll-to-perc',
+	'<ctrl-u>': 'scroll-page 0 -0.5',
+	'<ctrl-d>': 'scroll-page 0 0.5',
+	'<ctrl-b>': 'scroll-page 0 -1',
+	'<ctrl-f>': 'scroll-page 0 1',
+
+    # hints
+	'<alt-f>': 'hint all',
+	'<ctrl-shift-f>': 'hint all tab',
+
+    # zoom
+	'<ctrl-=>': 'zoom-in',
+	'<ctrl-->': 'zoom-out',
+
+    # commands
+	'<ctrl-shift-.>': 'set-cmd-text :',
+	'<ctrl-/>': 'set-cmd-text /',
+	'<ctrl-shift-/>': 'set-cmd-text ?',
+
+    # misc
+	'<ctrl-r>': 'reload',
+	'<ctrl-.>': 'repeat-command',
+    
+    # Workaround to make numbers work not be handled by qutebrowser: https://github.com/qutebrowser/qutebrowser/issues/4213
+    '1': 'fake-key 1',
+    '2': 'fake-key 2',
+    '3': 'fake-key 3',
+    '4': 'fake-key 4',
+    '5': 'fake-key 5',
+    '6': 'fake-key 6',
+    '7': 'fake-key 7',
+    '8': 'fake-key 8',
+    '9': 'fake-key 9',
+    '0': 'fake-key 0',
+}
 
 # Make active/inactive colors consistent with i3 and tmux config
 c.colors.tabs.even.bg = "#333333"
