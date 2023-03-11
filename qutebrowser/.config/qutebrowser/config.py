@@ -1,5 +1,3 @@
-import catppuccin
-
 ### BEHAVIOR
 
 # Load config from file only, not from browser - quickmarks and bookmarks are not part of config.
@@ -43,8 +41,6 @@ c.fonts.tabs.selected = "10pt Hack Nerd Font"
 c.fonts.tabs.unselected = "10pt Hack Nerd Font"
 
 c.colors.webpage.preferred_color_scheme = "dark"
-
-catppuccin.setup(c, "macchiato")
 
 # Show tab numbor to make it easier to jump to tab number 
 c.tabs.title.format = '{index}{private}{title_sep}{current_title}'
@@ -94,3 +90,16 @@ config.bind("I", "mode-enter passthrough", mode="normal")
 config.bind('aa', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open -t https://www.google.com/search?q=cache:{url}')
 
+# Make active/inactive colors consistent with i3 and tmux config
+c.colors.tabs.even.bg = "#333333"
+c.colors.tabs.odd.bg = "#333333"
+c.colors.tabs.even.fg = "#FFFFFF"
+c.colors.tabs.odd.fg = "#FFFFFF"
+c.colors.tabs.selected.even.bg = "#008800"
+c.colors.tabs.selected.odd.bg = "#008800"
+c.colors.tabs.selected.even.fg = "#FFFFFF"
+c.colors.tabs.selected.odd.fg = "#FFFFFF"
+c.colors.tabs.even.bg = "#333333"
+c.colors.tabs.odd.bg = "#333333"
+c.colors.tabs.even.fg = "#FFFFFF"
+c.colors.tabs.odd.fg = "#FFFFFF"
