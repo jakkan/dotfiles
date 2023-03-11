@@ -1,13 +1,17 @@
+# i3config-rust v0.3
+
+[icons]
 icons = "awesome"
 
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d/%m %R"
+format = " %a %d/%m %R "
 
 [[block]]
 block = "battery"
-format = " {percentage}" 
+interval = 60 # seconds
+format = " $icon $percentage " 
 if_command = "test -e /sys/class/power_supply/BAT0"
 missing_format = ""
 
