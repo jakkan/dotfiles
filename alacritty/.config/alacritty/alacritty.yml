@@ -1,0 +1,26 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+selection:
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+scrolling:
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+font:
+  normal:
+    family: "Hack Nerd Font"
+    style: Regular
+  bold:
+    family: "Hack Nerd Font"
+    style: Bold
+  italic:
+    family: "Hack Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "Hack Nerd Font"
+    style: Bold Italic
+  size: 9.0
+
