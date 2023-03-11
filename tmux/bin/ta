@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Exit if already in tmux
 if [ -n "$TMUX" ]; then
