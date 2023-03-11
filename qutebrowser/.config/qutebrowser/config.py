@@ -82,10 +82,6 @@ c.url.default_page = "about:blank"
 
 ### KEY MAPPINGS
 
-# Rebind close
-config.unbind('d')
-config.bind("x", "tab-close", "normal")
-
 # Editor bindings
 c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 config.bind("gF", "view-source --edit", "normal")
