@@ -45,8 +45,8 @@ c.colors.webpage.preferred_color_scheme = "dark"
 # Show tab numbor to make it easier to jump to tab number
 c.tabs.title.format = '{private} {current_title}'
 
-# Set a maximum tab width so small numbers of tabs aren't so huge
-c.tabs.max_width = 300
+# Show tab bar only when there is more than 1 tab
+c.tabs.show = "multiple"
 
 ### URLS
 
