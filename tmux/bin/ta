@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Exit if already in tmux
+if [ -n "$TMUX" ]; then
+  exit 1
+fi
+
+# Interactively selected session
+if [[ "$1" == "-i" ]]; then
+  session_group_name=$(tmux list-sessions -F "#{session_group}" | awk '!seen[$1]++' | fzf --reverse --info=hidden --prompt 'Attach to session:' | xargs echo)
+# Named session
+elif [[ -n "$1" ]]; then
+  session_group_name=$1
+# Default session
+else
+  session_group_name="x"
+fi
+
+# Create base session
+if ! tmux has-session -t "$session_group_name"; then
+  tmux new-session -d -t "$session_group_name" -s "$session_group_name"
+fi
+
+# Create and attach to temporrary linked session
+linked_session_name=s$(date +%Y%m%d%H%M%S)
+tmux new-session -d -t "$session_group_name" -s "$linked_session_name"
+tmux attach-session -t "$linked_session_name" \; set-option destroy-unattached
+
+
