@@ -56,8 +56,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Aliases to make life easier
-alias vim=nvim
-alias v=nvim
+alias nv=nvim
 alias lz=lazygit
 alias ls=exa
 alias cat=batcat
@@ -65,7 +64,6 @@ alias grep=rg
 alias find=fd
 
 # Aliases to make original tools possible to access
-alias vim_=/usr/bin/vim
 alias ls_=/usr/bin/ls
 alias cat_=/usr/bin/cat
 alias grep_=/usr/bin/grep
