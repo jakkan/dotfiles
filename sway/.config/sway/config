@@ -1,5 +1,3 @@
-# Config for i3 version 4.20.1
-
 ### NON-KEY EVENTS
 
 # Make focused window easier to see
@@ -12,13 +10,7 @@ font pango:Hack Nerd Font 10
 exec --no-startup-id dex --autostart --environment i3
 
 # wallpapers
-exec --no-startup-id (cd ~/wallpapers; feh --bg-fill arch_nz.png)
-
-# composer
-exec --no-startup-id picom -b
-
-# screen lock
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id setrandom ~/wallpapers
 
 # network management tray gui
 exec --no-startup-id nm-applet
@@ -27,7 +19,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet &
 
 # clipboard manager
-exec --no-startup-id greenclip daemon &
+exec wl-paste -t text --no-persist --watch clipman store
 
 ### KEY EVENTS
 
@@ -36,7 +28,7 @@ set $gui mod4
 set $alt mod1
 
 # paste from history
-bindsym $gui+v exec --no-startup-id "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $gui+v exec --no-startup-id clipman pick -t wofi
 
 # printscreen
 bindsym Print exec --no-startup-id gnome-screenshot -i
@@ -55,9 +47,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
 # power control
 set $power_control Power control: [l]ock, log[o]ut, susp[e]nd, [h]ibernate, [r]eboot, [s]hut down
 mode "$power_control" {
-  bindsym l exec --no-startup-id "i3lock -c 000000", mode default
+  bindsym l exec --no-startup-id swaylock -c 000000, mode default
   bindsym o exec --no-startup-id i3-msg exit, mode default
-  bindsym e exec --no-startup-id systemctl suspend, mode default
+  bindsym e exec --no-startup-id exec swaylock && sleep 2 && systemctl suspend, mode default
   bindsym h exec --no-startup-id systemctl hibernate, mode default
   bindsym r exec --no-startup-id systemctl reboot, mode default
   bindsym s exec --no-startup-id systemctl poweroff, mode default
@@ -81,7 +73,7 @@ mode "$notifications" {
 bindsym $gui+apostrophe mode "$notifications"
 
 # i3 control
-bindsym $gui+Shift+q restart
+bindsym $gui+Shift+q reload
 
 # starting applications
 bindsym $gui+space exec --no-startup-id "rofi -modi run,drun -show run"
@@ -115,8 +107,6 @@ bindsym $gui+Left focus left
 bindsym $gui+Down focus down
 bindsym $gui+Up focus up
 bindsym $gui+Right focus right
-
-bindsym $gui+u, [urgent=latest] focus
 
 # move focused window
 bindsym $gui+Shift+h move left
