@@ -1,6 +1,6 @@
 # Dotfiles
 
-Dotfiles used together with 34-key cradio keyboard ([zmk-config](https://github.com/jakkan/zmk-config)) and neovim.
+Dotfiles used together with 34-key cradio keyboard ([zmk-config](https://github.com/jakkan/zmk-config)) and neovim ([config](https://github.com/jakkan/neovim-config)).
 
 ## Install
 
