@@ -87,7 +87,7 @@ bindsym $gui+Shift+q restart
 bindsym $gui+space exec --no-startup-id "rofi -modi run,drun -show run"
 set $run_application Execute: [t]erminal, [q]ute browser, [c]hrome, [v]s code [n]otes, [d]aily note, [x]cheatsheets
 mode "$run_application" {
-  bindsym t exec "alacritty --command ta", mode default
+  bindsym t exec --no-startup-id alacritty, mode default
   bindsym q exec --no-startup-id qutebrowser, mode default
   bindsym c exec --no-startup-id google-chrome, mode default
   bindsym v exec --no-startup-id code, mode default
