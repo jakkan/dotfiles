@@ -50,7 +50,7 @@ catppuccin.setup(c, "macchiato")
 c.tabs.title.format = '{index}{private}{title_sep}{current_title}'
 
 # Set a maximum tab width so small numbers of tabs aren't so huge
-c.tabs.max_width = 250
+c.tabs.max_width = 300
 
 ### URLS
 
